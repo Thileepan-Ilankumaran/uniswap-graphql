@@ -8,6 +8,8 @@ import gql from 'graphql-tag'
 import uniswapLogo from '../uniswap-logo.png'
 import daiLogo from '../dai-logo.png'
 
+// uniswap v2 gql client
+
 export const client = new ApolloClient({
   link: new HttpLink({
     uri: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2'
@@ -17,6 +19,26 @@ export const client = new ApolloClient({
   },
   cache: new InMemoryCache()
 })
+
+// gql queries
+
+const DAI_QUERY = gql`
+  query tokens($tokenAddress: Bytes!) {
+    tokens(where: { id: $tokenAddress }) {
+      derivedETH
+      totalLiquidity
+    }
+  } 
+`
+
+const ETH_PRICE_QUERY = gql`
+  query bundles {
+    bundles( where: { id: "1" }) {
+      ethPrice
+    }
+  }
+`
+
 
 
 function App() {
