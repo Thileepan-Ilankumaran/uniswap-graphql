@@ -1,4 +1,4 @@
-// Uniswap X GraphQL Integration
+## Uniswap X GraphQL Integration
 
 clone the repo 
 
@@ -11,4 +11,10 @@ install npm pckgs
 ```sh
 npm i
 ```
+
+to run the project : 
+```sh
+npm run start
+```
+
 
